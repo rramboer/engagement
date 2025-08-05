@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engagement Photo Gallery</title>
+    <meta name="description" content="Ryan & Amanda">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" type="text/javascript"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/css/nanogallery2.min.css" rel="stylesheet"
+        type="text/css">
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/jquery.nanogallery2.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Updock&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: rgb(18, 19, 22);
+            font-family: "Updock", cursive;
+            font-weight: 300;
+            font-style: normal;
+        }
+
+        .gallery-title {
+            text-align: center;
+            color: whitesmoke;
+            font-size: 100px;
+            margin: 0;
+            padding: 0;
+            font-weight: 300;
+        }
+
+        .gallery-date {
+            text-align: center;
+            color: whitesmoke;
+            font-size: 50px;
+            margin: 0;
+            padding: 0;
+            font-weight: 300;
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+            height: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgb(18, 19, 22);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Modern CSS for other browsers */
+        html {
+            scrollbar-width: thin;
+            scrollbar-color: #888 rgb(18, 19, 22);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 class="gallery-title">Ryan & Amanda</h1>
+    <h2 class="gallery-date">September 28, 2024</h2>
+
+    <div id="nanogallery2"></div>
+
+    <script>
+        $(document).ready(function () {
+
+            $("#nanogallery2").nanogallery2({
+                thumbnailDisplayOutsideScreen: true,
+                thumbnailHeight: '200 XSauto SMauto',
+                thumbnailWidth: 'auto XS80 SM120',
+                thumbnailToolbarImage: {
+                    bottomRight: 'download',
+                },
+                thumbnailLabel: {
+                    valign: 'bottom',
+                    align: 'left',
+                    position: 'overImage',
+                    display: true,
+                    hideIcons: true,
+                    titleFontSize: '1.7em',
+                },
+                thumbnailWaitImageLoaded: true,
+                thumbnailDisplayTransition: 'slideUp',
+                thumbnailHoverEffect2: 'toolsAppear|scale120',
+                viewerTools: {
+                    topRight: 'download, rotateLeft, rotateRight, zoomButton, fullscreenButton, closeButton',
+                },
+                items: Array.from({ length: 99 }, (_, index) => {
+                    const id = index + 1;
+                    return {
+                        src: `img/${id}.jpg`,
+                        srct: `img_thumbnails/${id}.jpg`,
+                        title: `${id}`
+                    };
+                }),
+            });
+        });
+    </script>
+
+</body>
+
+</html>
